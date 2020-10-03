@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('Position_Salaries.csv')
+dataset = pd.read_csv("E:\MachineLearning\Machine LearningDatasets\Regression\SupportVectorRegression(SVR)\Python\Position_Salaries.csv")
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
 print(X)
@@ -26,7 +26,7 @@ print(y)
 # Training the SVR model on the whole dataset
 from sklearn.svm import SVR
 regressor = SVR(kernel = 'rbf')
-regressor.fit(X, y)
+regressor.fit(X, y.ravel())
 
 # Predicting a new result
 sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])))
